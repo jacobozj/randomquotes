@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const os = require("os")
 const port = 80;
 
 const quotes = [
@@ -15,9 +16,9 @@ const quotes = [
 
 app.get('/', (req, res) => {
     const number = Math.floor(Math.random() * 7);
-        res.send(quotes[number]);
-});
-
+    res.send(phrases[number]+" - Container Id: "+os.hostname())
+  })
+  
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 })
